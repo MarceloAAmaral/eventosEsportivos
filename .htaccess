@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+#RewriteCond %{SERVER_PORT} 80
+#RewriteRule ^(.*)$ https://www.bsrun.com.br/$1 [R,L]
+RewriteCond %{REQUEST_FILENAME}! -f
+RewriteCond %{REQUEST_FILENAME}! -d 
+RewriteRule ^([a-z]+)/?$ index.php?sec=$1 [NC]
+RewriteRule ^([a-z]+)/([a-z0-9-]+)/?$ index.php?sec=$1&sub=$2 [NC]
+RewriteRule ^([a-z]+)/([a-z0-9-]+)/(.*)/?$ index.php?sec=$1&sub=$2&filtros=$3 [NC]
+
+
+</IfModule> 
+
